@@ -38,4 +38,31 @@ module.exports = function(app) {
     .get(experiencesCtrl.detail)
     .put(experiencesCtrl.update)
     .delete(experiencesCtrl.delete);
+
+  // profileList Routes
+  var profilesCtrl = require('./controllers/ProfilesController')
+
+  app.route('/profile')
+    .get(profilesCtrl.get)
+    .post(profilesCtrl.store);
+  
+  
+  app.route('/profile/:profileId')
+    .get(profilesCtrl.detail)
+    .put(profilesCtrl.update)
+    .delete(profilesCtrl.delete);
+
+  // postList Routes
+  var postsCtrl = require('./controllers/PostsController')
+
+  app.route('/post')
+    .get(postsCtrl.get)
+    .post(postsCtrl.store);
+  
+  
+  app.route('/post/:postId')
+    .get(postsCtrl.detail)
+    .put(postsCtrl.update)
+    .delete(postsCtrl.delete);
+
 };
